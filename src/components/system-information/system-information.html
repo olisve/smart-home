@@ -1,0 +1,24 @@
+<div>
+    <div class="sh-system-information__table">
+        <div
+                class="sh-system-information__row"
+                v-for="item in items"
+        >
+            <div class="sh-system-information__row-content">
+                <div class="sh-system-information__row-name">{{item.name}}</div>
+                <div class="sh-system-information__row-parameters">
+                    <Label :name="'Status'" :value="item.status"></Label>
+                    <Label :name="'IP address'" :value="item.ip"></Label>
+                    <Label :name="'Port'" :value="item.port"></Label>
+                    <Label :name="'Last Ping'" :value="item.lastPing"></Label>
+                    <a class="sh-system-information__row-parameters-more" v-b-toggle="item.id">Show more ↓</a>
+                </div>
+            </div>
+            <b-collapse :id="item.id">
+                <b-card>
+                    <p class="card-text">Additional information</p>
+                </b-card>
+            </b-collapse>
+        </div>
+    </div>
+</div>

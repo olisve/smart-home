@@ -1,0 +1,55 @@
+.sh-system-information {
+
+  &__table {
+    width: 60%;
+    margin: auto;
+
+    & .card {
+      border: none;
+      border-top: 1px solid rgba(0, 0, 0, 0.125);
+      border-radius: 0px;
+
+      box-shadow: inset 0 8px 20px -10px rgba(0, 0, 0, 0.05);
+    }
+  }
+
+  &__row {
+    border: 1px solid rgba(0, 0, 0, 0.125);
+
+    &-content {
+      padding: 20px 35px;
+    }
+
+    &:not(:last-child) {
+      border-bottom: none;
+    }
+
+    &-name {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    &-parameters {
+
+      position: relative;
+
+      & .sh-label {
+        display: inline-block;
+        margin-top: 10px;
+        margin-right: 100px;
+      }
+
+      &-more {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        font-size: 14px;
+        color: #2196f3 !important;
+      }
+
+      &-more:hover {
+        text-decoration: underline !important;
+      }
+    }
+  }
+}
