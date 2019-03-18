@@ -1,0 +1,38 @@
+<div class="sh-new-periphery-popover">
+    <div class="sh-new-periphery-popover__popover">
+
+        <div class="sh-new-periphery-popover__title">Create new flow</div>
+
+        <b-form-group label="Periphery device *" label-for="peripheryInput">
+            <b-form-select id="peripheryInput" :options="peripheryOptions" required v-model="chosenPeriphery" />
+        </b-form-group>
+
+        <b-form-group label="Event type *" label-for="eventInput">
+            <b-form-select id="eventInput" :options="eventsOptions" required v-model="formValue.event_type" />
+        </b-form-group>
+
+        <b-form-group label="Name" label-for="nameInput">
+            <b-form-input
+                    id="nameInput"
+                    type="text"
+                    v-model="formValue.name"
+                    required
+                    placeholder="Enter name for device..."
+            />
+        </b-form-group>
+
+        <b-form-group label="Description" label-for="descriptionInput">
+            <b-form-textarea
+                    id="descriptionInput"
+                    v-model="formValue.description"
+                    rows="3"
+                    max-rows="6"
+            />
+        </b-form-group>
+
+        <div class="sh-new-periphery-popover__controls">
+            <b-button class="primary width-like-cancel" @click="create($event)">Create</b-button>
+            <b-button variant="outline-secondary" @click="$emit('cancel')">Cancel</b-button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+@import '../../assets/styles/variables';
+
+.sh-pin-mapping {
+
+  height: calc(100vh - @header-height);
+  display: flex;
+
+  &__view {
+    width: calc(100% - @tasks-toolkit-width);
+    height: 100%;
+  }
+
+  &__save-button {
+    position: absolute;
+    top: 110px;
+    right: 20px;
+    z-index: 500;
+
+    padding: 4px 25px;
+    border-radius: 12px;
+  }
+}

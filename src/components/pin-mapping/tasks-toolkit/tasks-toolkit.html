@@ -1,0 +1,19 @@
+<div class="sh-tasks-toolkit">
+    <div class="sh-tasks-toolkit__header">
+        <div class="sh-tasks-toolkit__title">Tasks</div>
+        <div class="sh-tasks-toolkit__subtitle">Drag and drop needed tasks.</div>
+    </div>
+    <div id="list" class="sh-tasks-toolkit__list">
+        <div
+                id="d"
+                class="sh-tasks-toolkit__item"
+                draggable="true"
+                v-for="item in tasks"
+        >
+            <span v-if="item.type === 'condition'" class="sh-tasks-toolkit__item-icon condition"></span>
+            <span v-if="item.type === 'assign'" class="sh-tasks-toolkit__item-icon assign"></span>
+            <span v-if="item.type === 'device'" class="sh-tasks-toolkit__item-icon device"></span>
+            <span>{{item.name}}</span>
+        </div>
+    </div>
+</div>

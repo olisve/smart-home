@@ -1,18 +1,10 @@
-.sh-app {
-  height: 100%;
+@import 'assets/styles/variables';
 
-  &__side-bar {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-  }
+.sh-app {
+  height: 100vh;
 
   &__content {
-    position: relative;
-    width: calc(100% - 260px);
-    left: 260px;
-    height: 100vh;
-    background-color: white;
+    width: 100%;
+    height: calc(100vh - @header-height);
   }
 }

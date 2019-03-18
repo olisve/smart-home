@@ -1,0 +1,19 @@
+<div class="sh-flows">
+    <b-button
+        class="sh-flows__new-flow-button primary"
+        @click="openNewFlowPopover()"
+    >+ New flow</b-button>
+
+    <div class="sh-flows__card-list">
+        <div class="sh-flows__card" v-for="item in flows">
+            <div class="sh-flows__card-title">{{item.name || 'No name'}}</div>
+            <div class="sh-flows__card-description">{{item.description}}</div>
+            <b-button class="sh-flows__card-button" @click="goToConfigurator(item.id)">Edit</b-button>
+        </div>
+    </div>
+    <NewFlowPopover
+        v-if="newFlowPopoverVisible"
+        @create="createFlow($event)"
+        @cancel="closeNewFlowPopover()"
+    ></NewFlowPopover>
+</div>

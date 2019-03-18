@@ -1,0 +1,77 @@
+@import "../../assets/styles/variables";
+@import "../../assets/styles/buttons";
+
+.sh-system {
+
+  padding: @default-padding;
+
+  & .nav-tabs .nav-link {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+
+  & .tab-pane:focus {
+    outline: none;
+  }
+
+  &__table {
+    width: 80%;
+    margin: 14px auto 30px;
+    border-radius: 8px;
+
+    &.devices-tab {
+      margin-top: 30px;
+    }
+  }
+
+  &__row {
+
+    border: 1px solid rgba(0, 0, 0, 0.125);
+
+    &:first-child {
+      border-top-right-radius: 8px;
+      border-top-left-radius: 8px;
+    }
+
+    &:last-child {
+      border-bottom-right-radius: 8px;
+      border-bottom-left-radius: 8px;
+    }
+
+    &-content {
+      padding: 20px 35px;
+    }
+
+    &:not(:last-child) {
+      border-bottom: none;
+    }
+
+    &-name {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    &-parameters {
+
+      position: relative;
+
+      & .sh-label {
+        display: inline-block;
+        margin-top: 10px;
+        margin-right: 100px;
+      }
+
+      &-more {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        font-size: 14px;
+        color: #2196f3 !important;
+      }
+
+      &-more:hover {
+        text-decoration: underline !important;
+      }
+    }
+  }
+}

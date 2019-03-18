@@ -1,0 +1,50 @@
+<div class="sh-system">
+    <b-tabs content-class="mt-3">
+        <b-tab title="Devices">
+            <div class="sh-system__table devices-tab">
+                <div
+                        class="sh-system__row"
+                        v-for="item in devices"
+                >
+                    <div class="sh-system__row-content">
+                        <div class="sh-system__row-name">{{item.label || 'Device ' + item.id }}</div>
+                        <div class="sh-system__row-parameters">
+                            <Label :name="'Pins'" :value="item.numberOfPins"></Label>
+                            <Label :name="'Serial Number'" :value="item.serialNumber"></Label>
+                            <Label :name="'Type'" :value="item.type"></Label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </b-tab>
+        <b-tab title="Periphery" active>
+            <b-button
+                class="primary"
+                v-on:click="openNewPeripheryPopover()"
+            >+ New periphery device</b-button>
+            <div class="sh-system__table">
+                <div
+                        class="sh-system__row"
+                        v-for="item in periphery"
+                >
+                    <div class="sh-system__row-content">
+                        <div class="sh-system__row-name">{{item.name || 'Periphery device ' + item.id }}</div>
+                        <div class="sh-system__row-parameters">
+                            <Label :name="'Device ID'" :value="item.device_id"></Label>
+                            <Label :name="'Bank ID'" :value="item.bank_id"></Label>
+                            <Label :name="'Bit'" :value="item.bit"></Label>
+                            <Label :name="'Type'" :value="getPeripheryType(item.type_id)"></Label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </b-tab>
+    </b-tabs>
+    <NewPeripheryPopover
+        v-if="newPeripheryPopoverVisible"
+        :devices="devices"
+        :peripheryTypes="peripheryTypes"
+        @create="registerPeriphery($event)"
+        @cancel="closeNewPeripheryPopover()"
+    ></NewPeripheryPopover>
+</div>

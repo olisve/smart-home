@@ -1,0 +1,38 @@
+<div class="sh-new-periphery-popover">
+    <div class="sh-new-periphery-popover__popover">
+
+        <div class="sh-new-periphery-popover__title">Add new periphery device</div>
+
+        <b-form-group label="Type *" label-for="typeInput">
+            <b-form-select id="typeInput" :options="peripheryTypesOptions" required v-model="formValue.peripheryTypeId" />
+        </b-form-group>
+
+        <b-form-group label="Device *" label-for="deviceInput">
+            <b-form-select id="deviceInput" :options="devicesOptions" required v-model="formValue.deviceId" />
+        </b-form-group>
+
+        <b-form-group label="Name" label-for="nameInput">
+            <b-form-input
+                    id="nameInput"
+                    type="text"
+                    v-model="formValue.name"
+                    required
+                    placeholder="Enter name for device..."
+            />
+        </b-form-group>
+
+        <b-form-group label="Description" label-for="descriptionInput">
+            <b-form-textarea
+                    id="descriptionInput"
+                    v-model="formValue.description"
+                    rows="3"
+                    max-rows="6"
+            />
+        </b-form-group>
+
+        <div class="sh-new-periphery-popover__controls">
+            <b-button class="primary width-like-cancel" v-on:click="$emit('create', formValue)">Create</b-button>
+            <b-button variant="outline-secondary" v-on:click="$emit('cancel')">Cancel</b-button>
+        </div>
+    </div>
+</div>

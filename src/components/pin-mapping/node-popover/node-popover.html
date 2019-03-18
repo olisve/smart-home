@@ -1,0 +1,79 @@
+<div class="sh-setup-popup">
+    <div class="sh-setup-popup__popup">
+        <div class="sh-setup-popup__popup-title">Configuration of {{node.type}}</div>
+
+        <div v-if="node.type === 'assign'">
+            <b-form-group label="Key *" label-for="keyInput">
+                <b-form-input
+                        id="keyInput"
+                        type="text"
+                        v-model="node.metadata.context.key"
+                        required
+                        placeholder="Enter key..."
+                />
+            </b-form-group>
+
+            <b-form-group label="Value *" label-for="valueInput">
+                <b-form-input
+                        id="valueInput"
+                        type="text"
+                        v-model="node.metadata.context.value"
+                        required
+                        placeholder="Enter value..."
+                />
+            </b-form-group>
+        </div>
+
+        <div v-if="node.type === 'condition'">
+            <b-form-group label="First variable *" label-for="v1Input">
+                <b-form-input
+                        id="v1Input"
+                        type="text"
+                        v-model="node.metadata.context.v1"
+                        required
+                        placeholder="Enter variable..."
+                />
+            </b-form-group>
+
+            <b-form-group label="Operation *" label-for="operationInput">
+                <b-form-select id="operationInput" :options="operationsOptions" required placeholder="'Choose operation...'" v-model="node.metadata.context.operation" />
+            </b-form-group>
+
+            <b-form-group label="Second variable *" label-for="v2Input">
+                <b-form-input
+                        id="v2Input"
+                        type="text"
+                        v-model="node.metadata.context.v2"
+                        required
+                        placeholder="Enter variable..."
+                />
+            </b-form-group>
+        </div>
+
+        <div v-if="node.type === 'device'">
+            <b-form-group label="Action *" label-for="actionInput">
+                <b-form-select id="actionInput" :options="actionsOptions" required v-model="node.metadata.context.action" />
+            </b-form-group>
+
+            <b-form-group label="Periphery *" label-for="peripheryInput">
+                <b-form-select id="peripheryInput" :options="peripheryOptions" required v-model="chosenPeriphery" />
+            </b-form-group>
+
+            <b-form-group label="Context name *" label-for="contextNameInput">
+                <b-form-input
+                        id="contextNameInput"
+                        type="text"
+                        v-model="node.metadata.context.context_name"
+                        required
+                        placeholder="Enter context name..."
+                />
+            </b-form-group>
+
+        </div>
+
+        <div class="sh-setup-popup__popup-controls">
+            <b-button class="primary width-like-cancel" @click="save()">Save</b-button>
+            <b-button variant="outline-secondary" @click="cancel()">Cancel</b-button>
+        </div>
+    </div>
+</div>

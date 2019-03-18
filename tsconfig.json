@@ -13,6 +13,7 @@
     "baseUrl": ".",
     "skipLibCheck": true,
     "strictNullChecks": false,
+    "noImplicitAny": false,
     "types": [
       "webpack-env"
     ],

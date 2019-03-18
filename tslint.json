@@ -20,6 +20,9 @@
     "no-consecutive-blank-lines": false,
     "trailing-comma": [false, {"multiline": "always", "singleline": "never"}],
     "eofline": false,
-    "member-access": [true, "no-public"]
+    "member-access": [true, "no-public"],
+    "no-angle-bracket-type-assertion": false,
+    "arrow-parens": [2, "never"],
+    "only-arrow-functions": false
   }
 }

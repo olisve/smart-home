@@ -1,0 +1,16 @@
+<div class="sh-pin-mapping">
+    <TasksToolkit></TasksToolkit>
+    <b-button class="sh-pin-mapping__save-button" @click="saveFlow()">Submit</b-button>
+    <div
+        id="graph"
+        class="sh-pin-mapping__view"
+        ondragover="event.preventDefault()"
+    >
+    </div>
+    <NodePopover
+        v-if="nodePopover.visible"
+        :node="nodePopover.node"
+        v-on:save="closeNodePopover()"
+        v-on:cancel="closeNodePopover()"
+    ></NodePopover>
+</div>
